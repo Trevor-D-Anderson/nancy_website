@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="relative top-[10000px]">
+    <div className="snap-start">
       <p>Footer</p>
     </div>
   );
