@@ -12,7 +12,13 @@ const NavBar = (props) => {
   const [change, setChange] = useState("bg-slate-500/50");
 
   useEffect(() => {
-    offset >= 885 ? setChange("bg-slate-400") : setChange("bg-slate-500/50");
+    if (offset >= 885 && offset < 2125) {
+      setChange("bg-slate-400");
+    } else if (offset >= 2125) {
+      setChange("bg-slate-400 shadow-[0_25px_50px_-12px_rgb(0,0,0,0.35)]");
+    } else {
+      setChange("bg-slate-500/50");
+    }
   }, [offset]);
 
   return (
