@@ -1,13 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const logo = require("../images/OverallOfficeSolutions_logo.png");
 const f_logo = require("../images/social_logos/f_logo_RGB-White_100.png");
 const t_logo = require("../images/social_logos/twitter.png");
 const l_logo = require("../images/social_logos/linkedin.png");
 
-const NavBar = () => {
+// javascript: (function(){window.scroll({top:13050})}());
+
+const NavBar = (props) => {
+  const { offset } = props;
+  const [change, setChange] = useState("bg-slate-500/50");
+
+  useEffect(() => {
+    offset >= 885 ? setChange("bg-slate-400") : setChange("bg-slate-500/50");
+  }, [offset]);
+
   return (
-    <div className="bg-slate-500/50 flex flex-row justify-between fixed top-0 w-screen z-20">
+    <div
+      className={`${change} flex flex-row justify-between fixed top-0 w-screen z-20`}
+    >
+      {/* {offset >= 480 ? setChange("bg-slate-500") : setChange("bg-slate-500/50")} */}
       <div className="flex flex-row">
         <img
           className="p-2 m-2 rounded-2xl hover:cursor-pointer h-20 bg-slate-300/75"
